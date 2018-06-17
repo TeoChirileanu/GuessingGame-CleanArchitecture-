@@ -61,7 +61,7 @@ namespace BusinessRules.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a number between 0 and 100 exlusive.
+        ///   Looks up a localized string similar to Please enter a number between {0} and {1} exlusive:.
         /// </summary>
         public static string AskForANumber {
             get {
@@ -75,6 +75,24 @@ namespace BusinessRules.Properties {
         public static string CorrectMessage {
             get {
                 return ResourceManager.GetString("CorrectMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 100.
+        /// </summary>
+        public static string MaxValue {
+            get {
+                return ResourceManager.GetString("MaxValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        public static string MinValue {
+            get {
+                return ResourceManager.GetString("MinValue", resourceCulture);
             }
         }
         

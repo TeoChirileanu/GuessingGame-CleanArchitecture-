@@ -1,6 +1,6 @@
 ﻿namespace BusinessRules {
     public interface IGame {
-        int CorrectNumber { get; set; }
+        bool IsOver { get; }
         void Check(int number);
     }
 }

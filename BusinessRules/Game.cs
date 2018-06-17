@@ -1,24 +1,34 @@
-﻿using Adapters;
+﻿using System;
+using Adapters;
 using BusinessRules.Properties;
 
 namespace BusinessRules {
     public class Game : IGame {
-        public IMessenger Messenger { private get; set; }
+        private readonly IMessenger _messenger;
 
-        public int CorrectNumber { get; set; }
+        public Game(IMessenger messenger) {
+            _messenger = messenger;
+        }
+
+        public bool IsOver { get; private set; }
+
+        public int CorrectNumber { private get; set; } = GameService.GetRandomNumber();
 
         public void Check(int number) {
-            if (number < CorrectNumber) {
-                Messenger.Deliver(Resources.TooLowMessage);
-                return;
+            switch (number.CompareTo(CorrectNumber)) {
+                case 1:
+                    _messenger.Deliver(Resources.TooHighMessage);
+                    break;
+                case -1:
+                    _messenger.Deliver(Resources.TooLowMessage);
+                    break;
+                case 0:
+                    _messenger.Deliver(Resources.CorrectMessage);
+                    IsOver = true;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-
-            if (number > CorrectNumber) {
-                Messenger.Deliver(Resources.TooHighMessage);
-                return;
-            }
-
-            Messenger.Deliver(Resources.CorrectMessage);
         }
     }
 }

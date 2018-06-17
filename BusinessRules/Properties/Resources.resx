@@ -127,6 +127,12 @@
     <value>Too low!</value>
   </data>
   <data name="AskForANumber" xml:space="preserve">
-    <value>Please enter a number between 0 and 100 exlusive</value>
+    <value>Please enter a number between {0} and {1} exlusive:</value>
+  </data>
+  <data name="MaxValue" xml:space="preserve">
+    <value>100</value>
+  </data>
+  <data name="MinValue" xml:space="preserve">
+    <value>0</value>
   </data>
 </root>
